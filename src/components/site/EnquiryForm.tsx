@@ -26,14 +26,14 @@ export function EnquiryForm({ initial = {}, showStay = true }: Props) {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const errs: Record<string, string> = {};
-    if (!v.name?.trim()) errs.name = "Please enter your name.";
+    if (!v.name?.trim()) errs["name"] = "Please enter your name.";
     const c = v.contact?.trim() ?? "";
-    if (!c) errs.contact = "Please enter a phone number or email.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c) && !/^\+?[\d\s-]{7,}$/.test(c)) errs.contact = "Enter a valid phone number or email.";
+    if (!c) errs["contact"] = "Please enter a phone number or email.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c) && !/^\+?[\d\s-]{7,}$/.test(c)) errs["contact"] = "Enter a valid phone number or email.";
     if (showStay) {
       const d = validateDates(v.checkIn, v.checkOut);
-      if (d) errs.dates = d;
-    } else if (!v.message?.trim()) errs.message = "Please write a short message.";
+      if (d) errs["dates"] = d;
+    } else if (!v.message?.trim()) errs["message"] = "Please write a short message.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
     setState("loading");
