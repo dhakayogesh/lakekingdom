@@ -27,7 +27,7 @@ export function Header() {
       <div className={`border-b bg-background/95 backdrop-blur transition-shadow ${scrolled ? "shadow-sm" : ""}`}>
         <div className="container-lux grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 lg:flex lg:justify-between">
           <Link to="/" className="flex min-w-0 items-center gap-3" aria-label={`${hotel.name} home`}>
-            <img src={hotel.logo} alt={`${hotel.name} logo`} className="h-14 w-auto shrink-0" />
+            <img src={hotel.logo} alt={`${hotel.name} logo`} className="h-16 w-auto shrink-0" />
             <span className="truncate font-serif text-xl tracking-[0.12em] uppercase">{hotel.name}</span>
           </Link>
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">

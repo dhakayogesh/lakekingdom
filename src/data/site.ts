@@ -7,7 +7,7 @@
 import logoAsset from "@/assets/logo.png.asset.json";
 
 const wm = (path: string) =>
-  `https://thumb.wikimedia.org/wikipedia/commons/thumb/${path}/1600px-${path.split("/").pop()}`;
+  `https://thumb.wikimedia.org/wikipedia/commons/thumb/${path}/1280px-${path.split("/").pop()}`;
 
 export const img = {
   hero: wm("7/74/20191207_Lake_Pichola%2C_City_Palace%2C_Udaipur%2C_1516_7254.jpg"),

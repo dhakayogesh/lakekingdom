@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { EnquiryForm } from "@/components/site/EnquiryForm";
+import type { Enquiry } from "@/lib/enquiry";
 import { SectionHead } from "@/components/site/ui";
 import { hotel } from "@/data/site";
 import { seo } from "@/lib/seo";
@@ -31,7 +32,7 @@ function Book() {
       {hotel.bookingEngineUrl ? (
         <a href={hotel.bookingEngineUrl} className="btn btn-primary self-start">Continue to booking</a>
       ) : (
-        <EnquiryForm initial={s} />
+        <EnquiryForm initial={s as Partial<Enquiry>} />
       )}
     </section>
   );
