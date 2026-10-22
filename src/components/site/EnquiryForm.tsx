@@ -1,4 +1,4 @@
-import { format, addDays } from "date-fns";
+import { format } from "date-fns";
 import { useState } from "react";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { hotel, rooms } from "@/data/site";
@@ -38,7 +38,7 @@ export function EnquiryForm({ initial = {}, showStay = true }: Props) {
     if (Object.keys(errs).length) return;
     setState("loading");
     try {
-      const url = showStay ? enquiryUrl(v) : enquiryUrl({ ...v, checkIn: v.checkIn || format(new Date(), "yyyy-MM-dd"), checkOut: v.checkOut || format(addDays(new Date(), 1), "yyyy-MM-dd") });
+      const url = enquiryUrl(showStay ? v : { ...v, checkIn: "", checkOut: "" });
       const w = window.open(url, "_blank", "noopener");
       setTimeout(() => setState(w === null && hotel.enquiryChannel === "whatsapp" ? "error" : "done"), 400);
     } catch {

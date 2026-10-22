@@ -26,11 +26,11 @@ export function nights(checkIn: string, checkOut: string) {
 
 export function summary(e: Enquiry) {
   const lines = [
-    `Booking enquiry — ${hotel.name}`,
+    `${e.checkIn ? "Booking enquiry" : "Enquiry"} — ${hotel.name}`,
     e.room ? `Room: ${e.room}` : null,
-    `Check-in: ${format(parseISO(e.checkIn), "d MMM yyyy")}`,
-    `Check-out: ${format(parseISO(e.checkOut), "d MMM yyyy")} (${nights(e.checkIn, e.checkOut)} nights)`,
-    `Guests: ${e.adults} adults, ${e.children} children · Rooms: ${e.rooms}`,
+    e.checkIn ? `Check-in: ${format(parseISO(e.checkIn), "d MMM yyyy")}` : null,
+    e.checkOut ? `Check-out: ${format(parseISO(e.checkOut), "d MMM yyyy")} (${nights(e.checkIn, e.checkOut)} nights)` : null,
+    e.checkIn ? `Guests: ${e.adults} adults, ${e.children} children · Rooms: ${e.rooms}` : null,
     e.name ? `Name: ${e.name}` : null,
     e.contact ? `Contact: ${e.contact}` : null,
     e.message ? `Message: ${e.message}` : null,
